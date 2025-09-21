@@ -1,3 +1,6 @@
+// stylesheets/components/_quote.scss
+@use "../mixins/media" as *; // This allows you to use the mixin without a namespace
+
 .container {
   width: 100%;
   padding-right: var(--space-xs);
@@ -5,7 +8,7 @@
   margin-left: auto;
   margin-right: auto;
 
-  @include media(tabletAndUp) {
+  @include media('tabletAndUp') {
     padding-right: var(--space-m);
     padding-left: var(--space-m);
     max-width: 60rem;

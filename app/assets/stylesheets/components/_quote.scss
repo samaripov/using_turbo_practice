@@ -1,3 +1,6 @@
+// stylesheets/components/_quote.scss
+@use "../mixins/media" as *; // This allows you to use the mixin without a namespace
+
 .quote {
   display: flex;
   justify-content: space-between;
@@ -10,7 +13,8 @@
   margin-bottom: var(--space-m);
   padding: var(--space-xs);
 
-  @include media(tabletAndUp) {
+  // Use the mixin with the correct argument
+  @include media('tableAndUp') { // Pass the argument to the mixin
     padding: var(--space-xs) var(--space-m);
   }
 

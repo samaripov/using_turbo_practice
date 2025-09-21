@@ -32,6 +32,23 @@ class QuotesTest < ApplicationSystemTestCase
     assert_text "Milkshake quote"
   end
 
+  test "Updating a quote" do
+    visit quotes_path
+    assert_selector "h1", text: "Quotes"
+
+    click_on "Edit", match: :first
+    # After clicking Edit, you should be on the edit page
+    assert_selector "h1", text: "Edit quote"  # This is what you'd expect
+    
+    fill_in "Name", with: "Updated quote"
+    click_on "Update quote"
+
+    # Only after submitting the form should you be back on the quotes page
+    assert_selector "h1", text: "Quotes"
+    assert_text "Updated quote"
+  end
+
+
   test "Destroying a quote" do
     visit quotes_path
     assert_text @quote.name
