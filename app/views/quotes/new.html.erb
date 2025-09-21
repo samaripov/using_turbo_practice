@@ -4,6 +4,9 @@
   <div class="header">
     <h1>New quote</h1>
   </div>
+  
+  <%= turbo_frame_tag Quote.new do %>
+    <%= render "form", quote: @quote %>
+  <% end %>
 
-  <%= render "form", quote: @quote %>
 </main>

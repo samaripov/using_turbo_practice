@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class QuotesTest < ApplicationSystemTestCase
   setup do
-    @quote = quotes(:first)
+    @quote = Quote.ordered.first
   end
 
   test "Showing a quote" do
@@ -39,7 +39,7 @@ class QuotesTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
     # After clicking Edit, you should be on the edit page
     assert_selector "h1", text: "Edit quote"  # This is what you'd expect
-    
+
     fill_in "Name", with: "Updated quote"
     click_on "Update quote"
 
