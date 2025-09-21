@@ -116,7 +116,22 @@ GEM
       raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    google-protobuf (4.32.0)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-aarch64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-aarch64-linux-musl)
+      bigdecimal
+      rake (>= 13)
     google-protobuf (4.32.0-x86_64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-x86_64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-x86_64-linux-musl)
       bigdecimal
       rake (>= 13)
     i18n (1.14.7)
@@ -257,6 +272,10 @@ GEM
     rdoc (6.14.2)
       erb
       psych (>= 4.0.0)
+    redis (5.4.1)
+      redis-client (>= 0.22.0)
+    redis-client (0.25.3)
+      connection_pool
     regexp_parser (2.11.3)
     reline (0.6.2)
       io-console (~> 0.5)
@@ -291,7 +310,19 @@ GEM
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
     rubyzip (3.1.0)
+    sass-embedded (1.90.0-aarch64-linux-gnu)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.90.0-aarch64-linux-musl)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.90.0-arm-linux-gnueabihf)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.90.0-arm-linux-musleabihf)
+      google-protobuf (~> 4.31)
     sass-embedded (1.90.0-x86_64-darwin)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.90.0-x86_64-linux-gnu)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.90.0-x86_64-linux-musl)
       google-protobuf (~> 4.31)
     securerandom (0.4.1)
     selenium-webdriver (4.35.0)
@@ -384,6 +415,7 @@ DEPENDENCIES
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.2, >= 8.0.2.1)
+  redis
   rubocop-rails-omakase
   selenium-webdriver
   simple_form

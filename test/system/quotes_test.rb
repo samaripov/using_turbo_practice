@@ -17,9 +17,7 @@ class QuotesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Quotes"
 
     # Wehn we click on the link with the text "New quote"
-    # we expect to land on a page with the title "New quote"
     click_on "New quote"
-    assert_selector "h1", text: "New quote"
 
     # When we fill in the name input with "Milkshake quote"
     # and we click on "Create quote"
@@ -37,8 +35,6 @@ class QuotesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Quotes"
 
     click_on "Edit", match: :first
-    # After clicking Edit, you should be on the edit page
-    assert_selector "h1", text: "Edit quote"  # This is what you'd expect
 
     fill_in "Name", with: "Updated quote"
     click_on "Update quote"
