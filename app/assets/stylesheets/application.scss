@@ -6,6 +6,7 @@
 @use "config/reset";
 
 // Components
+@use "components/navbar";
 @use "components/btn";
 @use "components/error_messages";
 @use "components/form";

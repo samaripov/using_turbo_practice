@@ -2,6 +2,7 @@ require "application_system_test_case"
 
 class QuotesTest < ApplicationSystemTestCase
   setup do
+    login_as users(:accountant)
     @quote = Quote.ordered.first
   end
 
@@ -19,15 +20,15 @@ class QuotesTest < ApplicationSystemTestCase
     # Wehn we click on the link with the text "New quote"
     click_on "New quote"
 
-    # When we fill in the name input with "Milkshake quote"
+    # When we fill in the name input with "First quote"
     # and we click on "Create quote"
-    fill_in "Name", with: "Milkshake quote"
+    fill_in "Name", with: "First quote"
     click_on "Create quote"
 
     # We expect to be back on the page with the title "Quotes"
-    # and to see our "Milkshake quote" added to the list
+    # and to see our "First quote" added to the list
     assert_selector "h1", text: "Quotes"
-    assert_text "Milkshake quote"
+    assert_text "First quote"
   end
 
   test "Updating a quote" do
