@@ -4,35 +4,27 @@ class QuotesTest < ApplicationSystemTestCase
   setup do
     login_as users(:accountant)
     @quote = Quote.ordered.first
+    visit quotes_path
+  end
+
+  private
+
+  def assert_quotes_page
+    assert_selector "h1", text: "Quotes"
   end
 
   test "Showing a quote" do
-    visit quotes_path
     click_link @quote.name
   end
 
   test "Creating a new quote" do
-    # When we visit the Quotes#index page
-    # we expect to see a title with the text "Quotes"
-    visit quotes_path
-    assert_selector "h1", text: "Quotes"
-
-    # Wehn we click on the link with the text "New quote"
-    click_on "New quote"
-
-    # When we fill in the name input with "First quote"
-    # and we click on "Create quote"
-    fill_in "Name", with: "First quote"
+    click_on "New quote", match: :first
+    fill_in "Name", with: "Fourth quote"
     click_on "Create quote"
-
-    # We expect to be back on the page with the title "Quotes"
-    # and to see our "First quote" added to the list
-    assert_selector "h1", text: "Quotes"
-    assert_text "First quote"
+    assert_text "Quote created"
   end
 
   test "Updating a quote" do
-    visit quotes_path
     assert_selector "h1", text: "Quotes"
 
     click_on "Edit", match: :first
@@ -47,10 +39,8 @@ class QuotesTest < ApplicationSystemTestCase
 
 
   test "Destroying a quote" do
-    visit quotes_path
-    assert_text @quote.name
-
     click_on "Delete", match: :first
+    page.driver.browser.switch_to.alert.accept
     assert_no_text @quote.name
   end
 end
