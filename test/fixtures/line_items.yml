@@ -1,14 +1,14 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  line_item_date: one
+  line_item_date: today
   name: MyString
   description: MyText
   quantity: 1
   unit_price: 9.99
 
 two:
-  line_item_date: two
+  line_item_date: next_week
   name: MyString
   description: MyText
   quantity: 1
