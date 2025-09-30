@@ -10,7 +10,10 @@ class LineItemsController < ApplicationController
     @line_item = @line_item_date.line_items.build(line_item_params)
 
     if @line_item.save
-      redirect_to @quote, notice: "Item created"
+      respond_to do |format|
+        format.html { redirect_to quotes_path(@quote), notice: "Item created" }
+        format.turbo_stream { flash.now[:notice] = "Item created" }
+      end
     else
       render :new, status: :unprocessable_content
     end
@@ -21,7 +24,10 @@ class LineItemsController < ApplicationController
 
   def update
     if @line_item.update(line_item_params)
-      redirect_to @quote, notice: "Item updated"
+      respond_to do |format|
+        format.html { redirect_to quotes_path(@quote), notice: "Item update" }
+        format.turbo_stream { flash.now[:notice] = "Item update" }
+      end
     else
       render :edit, status: :unprocessable_content
     end
@@ -30,7 +36,10 @@ class LineItemsController < ApplicationController
   def destroy
     if @line_item
       @line_item.destroy
-      redirect_to @quote
+      respond_to do |format|
+        format.html { redirect_to quotes_path(@quote), notice: "Item deleted" }
+        format.turbo_stream { flash.now[:notice] = "Item deleted" }
+      end
     end
   end
 

@@ -3,9 +3,10 @@
   <div class="header">
     <h1>Editing item for <%= localize(@line_item_date.date, format: :long) %></h1>
   </div>
-
-  <%= render "form", 
-              quote: @quote, 
-              line_item_date: @line_item_date, 
-              line_item: @line_item %>
+  <%= turbo_frame_tag @line_item do %>
+    <%= render "form", 
+                quote: @quote, 
+                line_item_date: @line_item_date, 
+                line_item: @line_item %>
+  <% end %>
 </main>
