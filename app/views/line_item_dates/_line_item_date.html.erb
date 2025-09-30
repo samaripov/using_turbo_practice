@@ -27,15 +27,15 @@
       </div>
     </div>
 
-    <%= turbo_frame_tag "line_items" do %>
+    <%= turbo_frame_tag dom_id(line_item_date, :line_items) do %>
       <%= render line_item_date.line_items, quote: quote, line_item_date: line_item_date %>
     <% end %>
 
-    <%= turbo_frame_tag LineItem.new %>
+    <%= turbo_frame_tag dom_id(line_item_date, :line_item) %>
     <div class="line-item-date__footer">
       <%= link_to "Add item", 
                   [:new, quote, line_item_date, :line_item], 
-                  data: { turbo_frame: dom_id(LineItem.new) },
+                  data: { turbo_frame: dom_id(line_item_date, :line_item) },
                   class: "btn btn--primary" %>
     </div>
   </div>

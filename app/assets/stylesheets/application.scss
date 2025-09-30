@@ -7,6 +7,7 @@
 @use "config/animations";
 
 // Components
+@use "components/quote_total";
 @use "components/line_item";
 @use "components/line_item_date";
 @use "components/empty_state";
@@ -22,3 +23,6 @@
 // Layouts
 @use "layouts/container";
 @use "layouts/header";
+
+// Utilities
+@use "utilities/margins";

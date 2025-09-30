@@ -6,6 +6,7 @@ class QuotesController < ApplicationController
 
   def show
     @lines_item_dates = @quote.line_item_dates.includes(:line_items).ordered
+    @quote_total = @quote.line_item_dates.includes(:line_items).reduce(0) { |sum, line_item_date| sum + line_item_date.line_items.sum(:unit_price) }
   end
 
   def new
